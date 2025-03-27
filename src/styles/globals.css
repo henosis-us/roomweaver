@@ -6,76 +6,74 @@
   --clr-primary: #7f7fd5;         /* Gradient Start - Main brand color */
   --clr-primary-focus: #86a8e7;    /* Gradient Mid - Used for focus rings/borders */
   --clr-primary-light: #91eae4;   /* Gradient End - Lighter shade/accent */
-  --clr-primary-lighter: #e5f9f7; /* Derived Pale Cyan - Used for placeholders (like Tailwind cyan-50/100) */
-  --clr-primary-dark: #5f5dbf;    /* Derived Darker Indigo - Example darker shade (like Tailwind indigo-700) */
+  --clr-primary-lighter: #e5f9f7; /* Derived Pale Cyan - Used for placeholders */
+  --clr-primary-dark: #5f5dbf;    /* Derived Darker Indigo - Example darker shade */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* @theme removed as it's specific to certain setups - ensure fonts are loaded if needed */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Add dark mode variables if desired */
+    /* --background: #0a0a0a; */
+    /* --foreground: #ededed; */
+     /* Adjust primary colors for dark mode if necessary */
   }
 }
 
+/* Apply basic font smoothing */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* More modern stack */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Added Keyframes for Rainbow Animation --- */
+/* --- Keyframes for Rainbow Animation --- */
 @keyframes rainbow-flow {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-/* --- End Keyframes --- */
 
-/* Rainbow Button Style */
+/* --- Rainbow Button Style --- */
 .btn-rainbow {
-  /* --- Updated Gradient & Size --- */
-  background: linear-gradient(90deg, var(--clr-primary), var(--clr-primary-focus), var(--clr-primary-light), var(--clr-primary)); /* Added start color at end for smooth loop */
-  background-size: 300% 100%; /* Increased size for smoother animation */
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-primary-focus), var(--clr-primary-light), var(--clr-primary));
+  background-size: 300% 100%;
   box-shadow: 0 4px 6px rgba(127, 127, 213, 0.25);
-
-  /* --- Updated Transition (exclude background-position) --- */
-  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition specific properties */
-
-  /* --- Added Animation --- */
-  animation: rainbow-flow 6s linear infinite; /* Apply the keyframes */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  animation: rainbow-flow 6s linear infinite;
+  /* Ensure text is readable */
+  color: white;
 }
 
 .btn-rainbow:hover {
-  /* --- Removed conflicting background-position change --- */
-  /* background-position: right center; */
-
-  /* --- Optional: Add other hover feedback --- */
-  box-shadow: 0 6px 12px rgba(127, 127, 213, 0.35); /* Enhance shadow */
-  transform: translateY(-1px); /* Subtle lift */
-  /* Optionally slightly speed up animation on hover - less common */
-  /* animation-duration: 4s; */
+  box-shadow: 0 6px 12px rgba(127, 127, 213, 0.35);
+  transform: translateY(-1px);
 }
 
 /* Examples Gallery Item Wrapper Style */
+/* Slightly reduced padding for mobile if needed, but 0.5rem is usually fine */
 .gallery-item-wrapper {
-  background-color: #f8f6f2;
+  background-color: #f8f6f2; /* Consider a slightly less yellow tone if it clashes */
   padding: 0.5rem;
   box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
 }
 
 /* Sticky Footer Banner Background */
 .footer-banner-bg {
+   /* Using RGBA for potential transparency, adjust alpha (last value) if needed */
    background: linear-gradient(to right, rgba(127, 127, 213, 0.97), rgba(134, 168, 231, 0.97), rgba(145, 234, 228, 0.97));
 }
 
-/* Ensure body/html have reasonable defaults if needed */
-/* body {
-  @apply bg-white text-gray-900;
-} */
+/* --- Add Tailwind Base, Components, Utilities --- */
+/* Make sure these are correctly imported if not done globally */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Optional: Add touch-action for smoother scrolling on mobile --- */
+html, body {
+    touch-action: manipulation; /* Prevents delay on touch devices for simple taps */
+}

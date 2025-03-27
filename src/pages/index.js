@@ -1,6 +1,7 @@
 // index.js
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 // Note: This component assumes 'styles/globals.css' is imported in _app.js
 // and contains the CSS custom properties like --clr-primary, --clr-primary-focus, etc.
 
@@ -101,58 +102,54 @@ export default function Home() {
          {/* <div className="sm:hidden" id="mobile-menu"> ... </div> */}
       </nav>
 
-      {/* Hero Section */}
+      {/* --- Hero Section --- */}
       <div className="relative bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Grid layout for larger screens */}
-                <div className="lg:grid lg:grid-cols-12 lg:gap-8">
-                {/* Text Content */}
-                <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:col-span-7 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-                  <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                  <div className="sm:text-center lg:text-left">
-                    <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+          <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+            {/* Text Content */}
+            <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:col-span-7 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+              <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                <div className="text-center lg:text-left">
+                  <h1 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl">
                     <span className="block xl:inline">Redesign Your Interior,</span>{' '}
-                      {/* Use CSS Variable for headline color */}
                     <span className="block text-[var(--clr-primary)] xl:inline">Love Your Space.</span>
-                    </h1>
-                    <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                  </h1>
+                  <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg max-w-xl mx-auto md:text-xl lg:mx-0 lg:max-w-xl">
                     Unlock the true potential of your rooms. Get beautiful, personalized design concepts that transform your house into a home you adore.
-                    </p>
+                  </p>
 
-                    {/* Hero Email Form */}
-                  <div className="mt-6 sm:max-w-xl sm:mx-auto lg:mx-0">
+                  {/* Email capture form with single button that leads to payment */}
+                  <div className="mt-6 max-w-lg mx-auto lg:mx-0 sm:max-w-xl">
                     <form onSubmit={handleHeroSubmit} className="sm:flex">
-                      <div className="min-w-0 flex-1">
+                      <div className="min-w-0 flex-1 mb-3 sm:mb-0">
                         <label htmlFor="hero-email" className="sr-only">Email address</label>
                         <input
                           id="hero-email"
                           type="email"
                           placeholder="Enter your email"
-                          // Use CSS Variable for focus ring/border
                           className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--clr-primary-focus)] focus:border-[var(--clr-primary-focus)]"
                           value={heroEmail}
                           onChange={(e) => setHeroEmail(e.target.value)}
                           required
                         />
                       </div>
-                      <div className="mt-3 sm:mt-0 sm:ml-3">
+                      <div className="sm:ml-3">
                         <button
                           type="submit"
-                          // Use CSS Variable for focus ring offset color indirectly via btn-rainbow styles potentially, or add explicit focus ring
-                          className="btn-rainbow block w-full py-3 px-4 rounded-md shadow-md text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--clr-primary-focus)]" // Added btn-rainbow class and explicit focus ring var
+                          className="btn-rainbow block w-full py-3 px-4 rounded-md shadow-md text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--clr-primary-focus)]"
                         >
-                          Get Updates
+                          Visualize Your Space
                         </button>
                       </div>
                     </form>
                   </div>
 
-                  <div className="mt-6">
+                  {/* Google Button */}
+                  <div className="mt-6 flex justify-center lg:justify-start">
                     <button
-                      // Use CSS Variable for focus ring/border
                       className="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--clr-primary-focus)]"
                     >
-                      {/* Keep Google's specific blue inline or define --clr-google */}
                       <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="#4285F4">
                         <path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z" />
                       </svg>
@@ -160,34 +157,20 @@ export default function Home() {
                     </button>
                   </div>
 
-                  <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                    <div className="rounded-md shadow">
-                      <a
-                        href="#upload-faq" // Updated link
-                        className="btn-rainbow w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white md:py-4 md:text-lg md:px-10 transition-colors" // Added btn-rainbow class
-                      >
-                        Visualize Your Space
-                      </a>
-                    </div>
-                    <div className="mt-3 sm:mt-0 sm:ml-3">
-                      <a
-                        href="#examples"
-                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-700 bg-gray-100 hover:bg-gray-200 md:py-4 md:text-lg md:px-10 transition-colors"
-                      >
-                        See Examples
-                      </a>
-                    </div>
+                  {/* Examples Button */}
+                  <div className="mt-5 sm:mt-8 flex justify-center lg:justify-start">
                   </div>
                 </div>
               </main>
             </div>
 
             {/* Image Area */}
-            <div className="relative lg:col-span-5 lg:h-full mt-10 lg:mt-0 h-56 sm:h-72 md:h-96 lg:relative">
-                {/* Use CSS Variable for placeholder background/text */}
+            <div className="relative lg:col-span-5 lg:h-full mt-10 lg:mt-0">
+              <div className="relative h-56 sm:h-72 md:h-96 lg:absolute lg:inset-0 lg:h-full lg:w-full">
                 <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-[var(--clr-primary-lighter)] lg:rounded-l-lg">
-                    <span className="text-2xl font-bold text-[var(--clr-primary-focus)]">PLACEHOLDER</span>
+                  <span className="text-2xl font-bold text-[var(--clr-primary-focus)]">PLACEHOLDER</span>
                 </div>
+              </div>
             </div>
           </div>
         </div>
@@ -216,13 +199,21 @@ export default function Home() {
             >
               {/* --- Image Placeholders --- */}
 
-              {/* Item 1 */}
+              {/* Item 1 - Using actual image */}
               <div className="transform hover:scale-105 transition-transform duration-200 break-inside-avoid-column">
-                <div className="gallery-item-wrapper relative rounded-lg overflow-hidden shadow-md" >
-                  <div className="h-64 w-full bg-indigo-100 rounded-md flex items-center justify-center overflow-hidden"
-                    style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23c8c8c8\' fill-opacity=\'0.1\'%3E%3C/g%3E%3C/svg%3E")' }}>
-                    <span className="text-lg font-bold text-indigo-700">MODERN LIVING (h-64)</span>
-                  </div>
+                <div className="gallery-item-wrapper relative rounded-lg overflow-hidden shadow-md h-64"> {/* Set height on wrapper */}
+                  <Image
+                    src="/livingroom.jfif" // Assumes livingroom.jfif is in your /public folder
+                    alt="Modern living room staged example"
+                    layout="fill" // Makes the image fill the parent container
+                    objectFit="cover" // Ensures the image covers the area, cropping if necessary
+                    className="rounded-lg" // Apply rounding consistent with the wrapper
+                    priority // Optional: Add if this image is above the fold for faster loading
+                  />
+                   {/* Optional: Overlay text if needed, adjust styling */}
+                  {/* <div className="absolute bottom-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">
+                     Modern Living
+                  </div> */}
                 </div>
               </div>
 
