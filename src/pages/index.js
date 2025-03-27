@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Head>
-        <title>Room Weaver - Redesign your interior in seconds using AI</title>
+        <title>Room Weaver - Get professional staging fast</title>
         <meta name="description" content="Upload photos of your rooms and get them professionally staged within 24 hours." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
