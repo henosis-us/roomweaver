@@ -1,3 +1,4 @@
+// index.js
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 // Note: This component assumes 'styles/globals.css' is imported in _app.js
@@ -415,7 +416,7 @@ export default function Home() {
                 Transform Empty Rooms into Stunning Spaces
               </h2>
               <p className="mt-3 text-lg text-gray-500">
-                With Room Weaver's professional staging service, you can turn empty rooms into beautifully designed spaces. Simply upload photos of your empty room, and within 24 hours, our team of design experts will deliver professionally staged images that highlight your space's potential.
+                With Room Weaver&apos;s professional staging service, you can turn empty rooms into beautifully designed spaces. Simply upload photos of your empty room, and within 24 hours, our team of design experts will deliver professionally staged images that highlight your space&apos;s potential.
               </p>
               <div className="mt-8">
                 {/* Feature list items - green ticks */}
@@ -470,7 +471,7 @@ export default function Home() {
                 Boost Your Real Estate Listings with Virtual Staging
               </h2>
               <p className="mt-3 text-lg text-gray-500">
-                Staged homes sell faster and for higher prices than empty homes. With Room Weaver's virtual staging, you can showcase your property's full potential without the cost and hassle of physical staging.
+                Staged homes sell faster and for higher prices than empty homes. With Room Weaver&apos;s virtual staging, you can showcase your property&apos;s full potential without the cost and hassle of physical staging.
               </p>
               <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {/* Feature boxes - Use CSS variable for icon color */}
@@ -501,7 +502,7 @@ export default function Home() {
                     </p>
                   </div>
                   <p className="mt-2 text-sm text-gray-500">
-                    Increase your property's perceived value by up to 10% with professional staging.
+                    Increase your property&apos;s perceived value by up to 10% with professional staging.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
@@ -583,7 +584,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="mt-4 text-gray-600">
-                "Room Weaver has revolutionized how I present vacant properties. The staging quality is exceptional, and I've seen a significant increase in buyer interest since using this service."
+                &quot;Room Weaver has revolutionized how I present vacant properties. The staging quality is exceptional, and I&apos;ve seen a significant increase in buyer interest since using this service.&quot;
               </p>
             </div>
 
@@ -608,7 +609,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="mt-4 text-gray-600">
-                "I was skeptical at first, but Room Weaver's virtual staging helped me sell my house in just 9 days! The rooms looked amazing, and the service was incredibly affordable compared to physical staging."
+                &quot;I was skeptical at first, but Room Weaver&apos;s virtual staging helped me sell my house in just 9 days! The rooms looked amazing, and the service was incredibly affordable compared to physical staging.&quot;
               </p>
             </div>
 
@@ -633,7 +634,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="mt-4 text-gray-600">
-                "As a designer, I'm very particular about staging. Room Weaver's attention to detail and design style is impressive. I've recommended them to all my clients who are preparing to sell their homes."
+                &quot;As a designer, I&apos;m very particular about staging. Room Weaver&apos;s attention to detail and design style is impressive. I&apos;ve recommended them to all my clients who are preparing to sell their homes.&quot;
               </p>
             </div>
           </div>
@@ -912,7 +913,7 @@ export default function Home() {
                       </h3>
                       <div className="mt-2 text-sm text-green-700">
                         <p>
-                          Thank you! We've received your photos. You'll get your beautifully staged room images via email within 24 hours.
+                          Thank you! We&apos;ve received your photos. You&apos;ll get your beautifully staged room images via email within 24 hours.
                         </p>
                       </div>
                        <button
@@ -1057,10 +1058,10 @@ export default function Home() {
                 </div>
                  <div className="pt-6 first:pt-0">
                   <h4 className="text-lg font-medium text-gray-900">
-                    What if I'm not satisfied with the results?
+                    What if I&apos;m not satisfied with the results?
                   </h4>
                   <div className="mt-2 text-base text-gray-500">
-                     We aim for your complete satisfaction. We offer one complimentary revision per room if you're not happy with the initial staging. Simply reply to your delivery email with specific feedback.
+                     We aim for your complete satisfaction. We offer one complimentary revision per room if you&apos;re not happy with the initial staging. Simply reply to your delivery email with specific feedback.
                   </div>
                 </div>
                 {/* Removed the extra FAQ I added previously */}
