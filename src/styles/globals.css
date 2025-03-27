@@ -3,6 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --clr-primary: #7f7fd5;         /* Gradient Start - Main brand color */
+  --clr-primary-focus: #86a8e7;    /* Gradient Mid - Used for focus rings/borders */
+  --clr-primary-light: #91eae4;   /* Gradient End - Lighter shade/accent */
+  --clr-primary-lighter: #e5f9f7; /* Derived Pale Cyan - Used for placeholders (like Tailwind cyan-50/100) */
+  --clr-primary-dark: #5f5dbf;    /* Derived Darker Indigo - Example darker shade (like Tailwind indigo-700) */
 }
 
 @theme inline {
@@ -24,3 +29,53 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* --- Added Keyframes for Rainbow Animation --- */
+@keyframes rainbow-flow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* --- End Keyframes --- */
+
+/* Rainbow Button Style */
+.btn-rainbow {
+  /* --- Updated Gradient & Size --- */
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-primary-focus), var(--clr-primary-light), var(--clr-primary)); /* Added start color at end for smooth loop */
+  background-size: 300% 100%; /* Increased size for smoother animation */
+  box-shadow: 0 4px 6px rgba(127, 127, 213, 0.25);
+
+  /* --- Updated Transition (exclude background-position) --- */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition specific properties */
+
+  /* --- Added Animation --- */
+  animation: rainbow-flow 6s linear infinite; /* Apply the keyframes */
+}
+
+.btn-rainbow:hover {
+  /* --- Removed conflicting background-position change --- */
+  /* background-position: right center; */
+
+  /* --- Optional: Add other hover feedback --- */
+  box-shadow: 0 6px 12px rgba(127, 127, 213, 0.35); /* Enhance shadow */
+  transform: translateY(-1px); /* Subtle lift */
+  /* Optionally slightly speed up animation on hover - less common */
+  /* animation-duration: 4s; */
+}
+
+/* Examples Gallery Item Wrapper Style */
+.gallery-item-wrapper {
+  background-color: #f8f6f2;
+  padding: 0.5rem;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+}
+
+/* Sticky Footer Banner Background */
+.footer-banner-bg {
+   background: linear-gradient(to right, rgba(127, 127, 213, 0.97), rgba(134, 168, 231, 0.97), rgba(145, 234, 228, 0.97));
+}
+
+/* Ensure body/html have reasonable defaults if needed */
+/* body {
+  @apply bg-white text-gray-900;
+} */
